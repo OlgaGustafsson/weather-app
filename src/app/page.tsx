@@ -12,6 +12,7 @@ import Container from "@/components/Container";
 import { convertKelvinToCelsius } from "@/utils/convertKelvinToCelsius";
 import WeatherIcon from "@/components/WeatherIcon";
 import getDayOrNightIcon from "@/utils/getDayOrNightIcon";
+import WeatherDetails from "@/components/WeatherDetails";
 
 
 export default function Home() {
@@ -102,7 +103,7 @@ if (isLoading) return (
             {/* left */}
             <Container className="w-fit justify-center flex-col px-4 items-center">
               <p className="capitalize text-center">
-                {firstData?.weather[0].description}
+                {firstData?.weather[0].description}{" "}
               </p>
               <WeatherIcon 
                       iconName={getDayOrNightIcon(
@@ -110,8 +111,10 @@ if (isLoading) return (
                         firstData?.dt_txt ?? ""
                       )} 
               />
+            </Container>
+            <Container className="bg-green-100/80 px-6 gap-4 justify-between overflow-x-auto">
 
-
+            <WeatherDetails visability={} airPressure={} />
 
             </Container>
 
