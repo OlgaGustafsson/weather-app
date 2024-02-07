@@ -10,6 +10,8 @@ import axios from "../../node_modules/axios/index";
 import { format, parseISO } from "date-fns";
 import Container from "@/components/Container";
 import { convertKelvinToCelsius } from "@/utils/convertKelvinToCelsius";
+import WeatherIcon from "@/components/WeatherIcon";
+import getDayOrNightIcon from "@/utils/getDayOrNightIcon";
 
 
 // https://api.openweathermap.org/data/2.5/forecast?q=pune&appid=1e375b17cd8d0563cf8cdb3356420acb&cnt=56
@@ -83,15 +85,27 @@ if (isLoading) return (
                     <p className="whitwspace-nowrap">
                       {format(parseISO(d.dt_txt), "h:mm a")}
                     </p>
-                  </div>
+                    {/* <WeatherIcon iconName={d.weather[0].icon} /> */}
+                    <WeatherIcon 
+                      iconName={getDayOrNightIcon(d.weather[0].icon, d.dt_txt)} 
+                    />
+                    <p>
+                    {convertKelvinToCelsius(d?.main.temp ?? 0)}°
+                    </p>
 
+
+                  </div>
                 ))}
               </div>
             </Container>
           </div>
         </section>
         {/* 7 day forcast data */}
-        <section></section>
+        <section className="flex w-full flex-col gap-4">
+          <p className="text-2xl">Forcast (7 days)</p>
+
+
+        </section>
       </main>
     </div>
 
