@@ -14,8 +14,6 @@ import WeatherIcon from "@/components/WeatherIcon";
 import getDayOrNightIcon from "@/utils/getDayOrNightIcon";
 
 
-// https://api.openweathermap.org/data/2.5/forecast?q=pune&appid=1e375b17cd8d0563cf8cdb3356420acb&cnt=56
-
 export default function Home() {
 
   const { isLoading, error, data } = useQuery<WeatherData>(
@@ -98,6 +96,27 @@ if (isLoading) return (
                 ))}
               </div>
             </Container>
+          </div>
+          <div className="flex gap-4">
+
+            {/* left */}
+            <Container className="w-fit justify-center flex-col px-4 items-center">
+              <p className="capitalize text-center">
+                {firstData?.weather[0].description}
+              </p>
+              <WeatherIcon 
+                      iconName={getDayOrNightIcon(
+                        firstData?.weather[0].icon ?? "", 
+                        firstData?.dt_txt ?? ""
+                      )} 
+              />
+
+
+
+            </Container>
+
+            {/* right */}
+
           </div>
         </section>
         {/* 7 day forcast data */}
