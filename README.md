@@ -1,10 +1,6 @@
 ## Weather-app
-### är en övning i Next.js + TypeScript + Tailwind CSS.
-### Väderdata hämtas från ett tredjeparts-API.
-#
-#
-#
-#
+#### är en övning i Next.js + TypeScript + Tailwind CSS.
+#### Väderdata hämtas från ett tredjeparts-API.
 #
 #
 
